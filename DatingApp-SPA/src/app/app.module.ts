@@ -25,6 +25,9 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AlertifyService } from './_services/alertify.service';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
+import {MemberEditComponent} from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 export function tokenGetter() {
@@ -48,7 +51,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MemberCardComponent,
     ListsComponent,
     MessagesComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -69,8 +73,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
   ],
   providers: [AuthService, ErrorInterceptorProvider,
      MemberDetailResolver, UserService,
-      AuthGuard, AlertifyService, MemberListResolver, {
-        provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig 
+      AuthGuard, AlertifyService, MemberListResolver, MemberEditResolver, PreventUnsavedChanges, {
+        provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
     }],
   bootstrap: [AppComponent],
 })

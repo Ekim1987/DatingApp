@@ -10,7 +10,7 @@
       <a class="nav-link" [routerLink]="['/lists']" >Lists</a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" [routerLink]="['/messages']" routerLinkActive="router-link-active"  tabindex="-1" aria-disabled="true"
+      <a class="nav-link" [routerLink]="['/messages']" routerLinkActive="active"  tabindex="-1" aria-disabled="true"
         >Messages</a
       >
     </li>
@@ -32,7 +32,7 @@
       Welcome {{authService.decodeToken?.unique_name | titlecase}}
     </a>
     <div class="dropdown-menu mt-3" *dropdownMenu>
-      <a class="dropdown-item" href="#" ><i class="fa fa-user"></i>Edit Profile</a>
+      <a class="dropdown-item" [routerLink]="['/member/edit']" ><i class="fa fa-user"></i>Edit Profile</a>
       <div class="dropdown-divider"></div>
       <a (click)="logout()" class="dropdown-item" href="#" ><i class="fa fa-sign-out"></i>Logout</a>
     </div>
