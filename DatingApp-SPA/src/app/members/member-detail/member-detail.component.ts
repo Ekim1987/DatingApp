@@ -11,6 +11,9 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   styleUrls: ['./member-detail.component.css'],
 })
 export class MemberDetailComponent implements OnInit {
+//   font1 = {};
+// red = 'michael';
+
 
   user: User;
   galleryOptions: NgxGalleryOptions[];
@@ -23,6 +26,7 @@ export class MemberDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+  //  this.changeColor();
     this.route.data.subscribe(data => {
       this.user = data.user;
     });
@@ -39,16 +43,28 @@ export class MemberDetailComponent implements OnInit {
   }
   getImages() {
     const imageUrls = [];
-    for (const photo of this.user.photos) {
+    for (let index = 0; index < this.user.photos.length; index++) {
       imageUrls.push({
-        small: photo.url,
-        medium: photo.url,
-        big: photo.url,
-        description: photo.description
+        small: this.user.photos[index].url,
+        medium: this.user.photos[index].url,
+        big: this.user.photos[index].url,
+        description: this.user.photos[index].description
       });
-      return imageUrls;
     }
+ 
+    return imageUrls;
   }
+
+  // changeColor(){
+  //   if(this.red === 'michael'){
+  //     this.font1 = { color: 'red', fontWeight: '900' };
+  //   }
+  //   else{
+  //     this.font1 = { color: 'green', fontWeight: '900' };
+  //   }
+  
+  // }
+  // }
 
   
 // loadUser() {
@@ -60,3 +76,5 @@ export class MemberDetailComponent implements OnInit {
 //     });
 //   }
  }
+
+
