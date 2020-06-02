@@ -5,12 +5,13 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MemberListComponent } from './members/member-list/member-list.component';
@@ -61,8 +62,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
+    BsDatepickerModule.forRoot(),
     FormsModule,
     FileUploadModule,
+    ReactiveFormsModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
