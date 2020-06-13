@@ -34,6 +34,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 
 export function tokenGetter() {
@@ -86,7 +87,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
   ],
   providers: [AuthService, ErrorInterceptorProvider,
      MemberDetailResolver, UserService,
-      AuthGuard, AlertifyService, MemberListResolver, MemberEditResolver, PreventUnsavedChanges, {
+      AuthGuard, AlertifyService, MemberListResolver, MemberEditResolver,ListsResolver, PreventUnsavedChanges, {
         provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
     }],
   bootstrap: [AppComponent],

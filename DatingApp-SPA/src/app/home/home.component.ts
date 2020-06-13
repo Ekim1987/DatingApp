@@ -8,15 +8,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
-  // values: any;
+  date: Date = new Date();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  ngOnInit(){
+  ngOnInit() {
+    console.log(this.date.getDay());
     // this.getValues();
   }
   registerToggle() {
     this.registerMode = true;
+   
   }
   // getValues() {
   //   this.http.get('http://localhost:5000/api/values').subscribe(
