@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DatingApp.API.Mobels;
 using DatingApp.API.Models;
 
 namespace DatingApp.API.models
@@ -22,8 +23,10 @@ namespace DatingApp.API.models
         public string Interests { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public ICollection<Photo> Photos{get;set;}
-        public ICollection<Like> Likers{get;set;}
-        public ICollection<Like> Likees{get;set;}
+        public ICollection<Photo> Photos { get; set; }
+        public ICollection<Like> Likers { get; set; }
+        public ICollection<Like> Likees { get; set; }
+        public ICollection<Message> MessageSent { get; set; }
+        public ICollection<Message> MessageReceived { get; set; }
     }
 }

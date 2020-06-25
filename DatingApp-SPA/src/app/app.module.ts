@@ -10,10 +10,10 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
-import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
-import { BsDatepickerModule} from 'ngx-bootstrap/datepicker';
-import {TabsModule } from 'ngx-bootstrap/tabs';
-import {PaginationModule } from 'ngx-bootstrap/pagination';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
@@ -27,24 +27,26 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AlertifyService } from './_services/alertify.service';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
-import {MemberEditComponent} from './members/member-edit/member-edit.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
-import {TimeAgoPipe} from 'time-ago-pipe';
+import { TimeAgoPipe } from 'time-ago-pipe';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
-export class CustomHammerConfig extends HammerGestureConfig  {
+export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
-      pinch: { enable: false },
-      rotate: { enable: false }
+    pinch: { enable: false },
+    rotate: { enable: false }
   };
 }
 
@@ -61,7 +63,9 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MessagesComponent,
     MemberDetailComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    MemberMessagesComponent
+    
   ],
   imports: [
     BrowserAnimationsModule,
@@ -86,10 +90,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     }),
   ],
   providers: [AuthService, ErrorInterceptorProvider,
-     MemberDetailResolver, UserService,
-      AuthGuard, AlertifyService, MemberListResolver, MemberEditResolver,ListsResolver, PreventUnsavedChanges, {
-        provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
+    MemberDetailResolver, UserService, MessagesResolver,
+    AuthGuard, AlertifyService, MemberListResolver, MemberEditResolver, ListsResolver, PreventUnsavedChanges, {
+      provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
     }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
